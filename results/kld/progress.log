@@ -1,0 +1,14 @@
+[2026-11-18T19:53:58] reference prose
+[2026-11-18T20:01:34] prose ollama-q4km
+[2026-11-18T20:02:43] prose ollama-q4km
+[2026-11-18T20:03:39] prose ollama-q4km-kvq8
+[2026-11-18T20:04:33] prose official-q4km
+[2026-11-18T20:05:22] prose official-q5km
+[2026-11-18T20:06:31] prose bart-q4kl
+[2026-11-18T20:07:19] reference code
+[2026-11-18T20:17:26] code ollama-q4km
+[2026-11-18T20:18:20] code ollama-q4km-kvq8
+[2026-11-18T20:19:15] code official-q4km
+[2026-11-18T20:20:03] code official-q5km
+[2026-11-18T20:21:12] code bart-q4kl
+[2026-11-18T20:21:59] DONE

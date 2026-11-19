@@ -1,0 +1,150 @@
+=== 20:22:30 ctl: -NCpuMoe 30
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11463 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ctl", "summary": true, "t": "2026-11-18T20:27:03", "code_tps": 69.27, "prose_tps": 61.76, "prefill_tps": 1846.57, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}
+=== 20:27:03 mc2k: -NCpuMoe 34 -Extra "--moe-cache-mib 1900"
+Stopping running inference server first...
+GPU memory in use: 1143 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 34, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11540 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "mc2k", "summary": true, "t": "2026-11-18T20:32:01", "code_tps": 56.24, "prose_tps": 55.65, "prefill_tps": 1655.12, "prefill_tokens": 15925, "code_sha": ["84ed4d816b20"], "prose_sha": ["099e11819601"]}
+=== 20:32:01 ctl: -NCpuMoe 30
+Stopping running inference server first...
+GPU memory in use: 1149 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11439 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ctl", "summary": true, "t": "2026-11-18T20:36:34", "code_tps": 70.33, "prose_tps": 62.83, "prefill_tps": 1856.06, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}
+=== 20:36:34 mc4k: -NCpuMoe 38 -Extra "--moe-cache-mib 3800"
+Stopping running inference server first...
+GPU memory in use: 1146 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 38, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11466 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "mc4k", "summary": true, "t": "2026-11-18T20:41:12", "code_tps": 65.07, "prose_tps": 71.28, "prefill_tps": 1562.99, "prefill_tokens": 15925, "code_sha": ["84ed4d816b20"], "prose_sha": ["099e11819601"]}
+=== 20:41:12 ctl: -NCpuMoe 30
+Stopping running inference server first...
+GPU memory in use: 1164 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11454 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ctl", "summary": true, "t": "2026-11-18T20:45:47", "code_tps": 70.19, "prose_tps": 62.93, "prefill_tps": 1823.02, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}
+=== 20:45:47 mcall: -NCpuMoe 41 -Extra "--moe-cache-mib 5000"
+Stopping running inference server first...
+GPU memory in use: 1092 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 41, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11129 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "mcall", "summary": true, "t": "2026-11-18T20:50:27", "code_tps": 64.38, "prose_tps": 74.73, "prefill_tps": 1489.14, "prefill_tokens": 15925, "code_sha": ["84ed4d816b20"], "prose_sha": ["099e11819601"]}
+=== 20:50:27 ctl: -NCpuMoe 30
+Stopping running inference server first...
+GPU memory in use: 1099 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11397 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ctl", "summary": true, "t": "2026-11-18T20:55:00", "code_tps": 70.62, "prose_tps": 63.13, "prefill_tps": 1844.45, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}
+=== 20:55:00 mtp0: -NCpuMoe 30 -MtpDraft 0
+Stopping running inference server first...
+GPU memory in use: 1108 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 0)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 9894 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "mtp0", "summary": true, "t": "2026-11-18T20:59:38", "code_tps": 63.4, "prose_tps": 63.04, "prefill_tps": 1934.78, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}
+=== 20:59:38 ctl: -NCpuMoe 30
+Stopping running inference server first...
+GPU memory in use: 1158 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11462 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ctl", "summary": true, "t": "2026-11-18T21:04:13", "code_tps": 70.65, "prose_tps": 62.85, "prefill_tps": 1744.24, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}
+=== 21:04:13 q4kl: -Model ornith-q4kl
+Stopping running inference server first...
+GPU memory in use: 1093 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b-q4kl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b-q4kl
+  GPU          : 11232 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "q4kl", "summary": true, "t": "2026-11-18T21:08:48", "code_tps": 68.19, "prose_tps": 59.19, "prefill_tps": 1811.63, "prefill_tokens": 15925, "code_sha": ["6d0093eb31da"], "prose_sha": ["d65299751044"]}
+=== 21:08:48 ctl: -NCpuMoe 30
+Stopping running inference server first...
+GPU memory in use: 1092 MB
+WARNING: over 1 GB still in use. Check for other GPU apps.
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b
+  GPU          : 11403 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ctl", "summary": true, "t": "2026-11-18T21:13:26", "code_tps": 69.6, "prose_tps": 61.87, "prefill_tps": 1808.18, "prefill_tokens": 15925, "code_sha": ["980c0075e0e4"], "prose_sha": ["81bc2cefada8"]}

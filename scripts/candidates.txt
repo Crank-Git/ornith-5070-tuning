@@ -1,0 +1,6 @@
+# name|path|extra llama-perplexity args
+ollama-q4km|C:\AI\models\ollama\blobs\sha256-aaeb640f98a892980ef54876024293cc8d6987a86523aa1b947ffa9274ef800a|
+ollama-q4km-kvq8|C:\AI\models\ollama\blobs\sha256-aaeb640f98a892980ef54876024293cc8d6987a86523aa1b947ffa9274ef800a|-ctk q8_0 -ctv q8_0
+official-q4km|C:\AI\models\ornith-ai\Ornith-1.5-35B-Q4_K_M.gguf|
+official-q5km|C:\AI\models\ornith-ai\Ornith-1.5-35B-Q5_K_M.gguf|
+bart-q4kl|C:\AI\models\bartowski\Ornith-1.5-35B-A3B-Q4_K_L.gguf|
