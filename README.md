@@ -1,9 +1,13 @@
-# Ornith-1.5-35B on an RTX 5070 (12 GB): quant quality and offload speed
+# Qwen3.6-35B-A3B and Ornith-1.5 on an RTX 5070 (12 GB)
 
-Measurements of [Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) GGUF quants running in llama.cpp on a 12 GB consumer card with the MoE experts partly in system RAM. They answer two questions:
+Measurements of [Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) and its base model, Qwen3.6-35B-A3B, as GGUF quants in llama.cpp. They run on a 12 GB consumer card with the MoE experts partly in system RAM. The measurements answer four questions:
 
 1. **Does running a 35B MoE "offloaded" make it worse?** Moving experts to the CPU doesn't change the math. The quant does, so we measured how far each quant's output drifts from a Q8_0 reference (KL divergence).
 2. **Do llama.cpp's newer offload levers help?** We tested `--moe-cache-mib` (a GPU cache for CPU-resident experts) and MTP speculative decoding against interleaved controls.
+3. **Which coding-agent harness works best with these models?**
+4. **Is the fine-tune (Ornith-1.5) better than its base model (Qwen3.6) on agent coding tasks?**
+
+**Short answer:** use Qwen3.6 as Unsloth's UD-Q4_K_M with Claude Code `--bare`. It matched Ornith's pass rate in about a third of the time. The sections on Qwen3.6 and agent tasks have the details.
 
 ## Hardware and software
 
