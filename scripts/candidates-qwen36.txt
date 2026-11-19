@@ -1,0 +1,4 @@
+# name|path|extra llama-perplexity args  (reference: bartowski Qwen_Qwen3.6-35B-A3B-Q8_0.gguf)
+qwen36-unsloth-ud-q4km|C:\AI\models\unsloth\Qwen3.6-35B-A3B-MTP-UD-Q4_K_M.gguf|
+qwen36-unsloth-ud-q4kxl|C:\AI\models\unsloth\Qwen3.6-35B-A3B-MTP-UD-Q4_K_XL.gguf|
+qwen36-bart-q4kl|C:\AI\models\bartowski\Qwen_Qwen3.6-35B-A3B-Q4_K_L.gguf|

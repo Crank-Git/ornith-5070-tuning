@@ -1,0 +1,7 @@
+corpus	name	mean_kld	kld_p99	same_top_p	ppl_q	ppl_base	rms_dp	seconds
+prose	qwen36-unsloth-ud-q4km	0.011625	0.118901	95.681	5.721654	5.704426		52
+prose	qwen36-unsloth-ud-q4kxl	0.011049	0.116317	95.998	5.718773	5.704426		52
+prose	qwen36-bart-q4kl	0.017584	0.189170	94.989	5.739618	5.704426		51
+code	qwen36-unsloth-ud-q4km	0.050364	0.942553	95.424	1.717278	1.689794		52
+code	qwen36-unsloth-ud-q4kxl	0.050138	0.948378	95.412	1.716967	1.689794		53
+code	qwen36-bart-q4kl	0.071980	1.331091	94.598	1.739620	1.689794		52

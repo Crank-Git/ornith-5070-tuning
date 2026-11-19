@@ -1,0 +1,9 @@
+[2026-11-19T01:18:50] reference prose
+[2026-11-19T01:23:40] prose qwen36-unsloth-ud-q4km
+[2026-11-19T01:24:31] prose qwen36-unsloth-ud-q4kxl
+[2026-11-19T01:25:23] prose qwen36-bart-q4kl
+[2026-11-19T01:26:14] reference code
+[2026-11-19T01:38:05] code qwen36-unsloth-ud-q4km
+[2026-11-19T01:38:58] code qwen36-unsloth-ud-q4kxl
+[2026-11-19T01:39:50] code qwen36-bart-q4kl
+[2026-11-19T01:40:42] DONE

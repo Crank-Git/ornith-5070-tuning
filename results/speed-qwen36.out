@@ -1,0 +1,104 @@
+=== 01:42:05 ornith-q4kl: -Model ornith-q4kl
+Stopping running inference server first...
+GPU memory in use: 1008 MB
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b-q4kl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b-q4kl
+  GPU          : 11127 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ornith-q4kl", "summary": true, "t": "2026-11-19T01:44:36", "code_tps": 67.89, "prose_tps": 58.98, "prefill_tps": 1721.03, "prefill_tokens": 15925, "code_sha": ["6d0093eb31da"], "prose_sha": ["d65299751044"]}
+=== 01:44:36 qwen36-udq4km: -Model qwen36-pt
+Stopping running inference server first...
+GPU memory in use: 1009 MB
+Ollama stopped; port free.
+Starting llama-server (qwen3.6-35b-a3b, ctx 131072, n-cpu-moe 30, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : qwen3.6-35b-a3b
+  GPU          : 11695 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "qwen36-udq4km", "summary": true, "t": "2026-11-19T01:47:16", "code_tps": 72.65, "prose_tps": 67.38, "prefill_tps": 1033.47, "prefill_tokens": 15925, "code_sha": ["0651dfacc611"], "prose_sha": ["5c18b2b1b677"]}
+=== 01:47:16 ornith-q4kl: -Model ornith-q4kl
+Stopping running inference server first...
+GPU memory in use: 930 MB
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b-q4kl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b-q4kl
+  GPU          : 11055 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ornith-q4kl", "summary": true, "t": "2026-11-19T01:49:47", "code_tps": 67.72, "prose_tps": 58.81, "prefill_tps": 1712.76, "prefill_tokens": 15925, "code_sha": ["6d0093eb31da"], "prose_sha": ["d65299751044"]}
+=== 01:49:47 qwen36-udq4kxl: -Model qwen36-xl
+Stopping running inference server first...
+GPU memory in use: 931 MB
+Ollama stopped; port free.
+Starting llama-server (qwen3.6-35b-a3b-xl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : qwen3.6-35b-a3b-xl
+  GPU          : 11472 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "qwen36-udq4kxl", "summary": true, "t": "2026-11-19T01:52:10", "code_tps": 71.18, "prose_tps": 64.49, "prefill_tps": 1758.2, "prefill_tokens": 15925, "code_sha": ["08c15e1e466f"], "prose_sha": ["bb7a2a64ad66"]}
+=== 01:52:10 ornith-q4kl: -Model ornith-q4kl
+Stopping running inference server first...
+GPU memory in use: 938 MB
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b-q4kl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b-q4kl
+  GPU          : 11057 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ornith-q4kl", "summary": true, "t": "2026-11-19T01:54:39", "code_tps": 67.47, "prose_tps": 58.8, "prefill_tps": 1743.23, "prefill_tokens": 15925, "code_sha": ["6d0093eb31da"], "prose_sha": ["d65299751044"]}
+=== 01:54:39 qwen36-bart-q4kl: -Model qwen36-q4kl
+Stopping running inference server first...
+GPU memory in use: 939 MB
+Ollama stopped; port free.
+Starting llama-server (qwen3.6-35b-a3b-q4kl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : qwen3.6-35b-a3b-q4kl
+  GPU          : 11460 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "qwen36-bart-q4kl", "summary": true, "t": "2026-11-19T01:56:59", "code_tps": 73.17, "prose_tps": 68.33, "prefill_tps": 1730.1, "prefill_tokens": 15925, "code_sha": ["39379571486e"], "prose_sha": ["38b24868fe6c"]}
+=== 01:56:59 ornith-q4kl: -Model ornith-q4kl
+Stopping running inference server first...
+GPU memory in use: 940 MB
+Ollama stopped; port free.
+Starting llama-server (ornith-1.5-35b-q4kl, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : ornith-1.5-35b-q4kl
+  GPU          : 11065 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "ornith-q4kl", "summary": true, "t": "2026-11-19T01:59:31", "code_tps": 67.68, "prose_tps": 58.95, "prefill_tps": 1724.07, "prefill_tokens": 15925, "code_sha": ["6d0093eb31da"], "prose_sha": ["d65299751044"]}
+=== 01:59:45 qwen36-udq4km-ncm31: -Model qwen36-pt -NCpuMoe 31
+Stopping running inference server first...
+GPU memory in use: 941 MB
+Ollama stopped; port free.
+Starting llama-server (qwen3.6-35b-a3b, ctx 131072, n-cpu-moe 31, mtp 1)...
+
+  llama-server is up
+  LAN endpoint : http://<lan-ip>:8888/v1
+  Model id     : qwen3.6-35b-a3b
+  GPU          : 11293 MB used / 12227 MB total
+
+  Stop with: aidown
+{"config": "qwen36-udq4km-ncm31", "summary": true, "t": "2026-11-19T02:02:07", "code_tps": 71.5, "prose_tps": 65.66, "prefill_tps": 1740.15, "prefill_tokens": 15925, "code_sha": ["1e3262d369c4"], "prose_sha": ["cb8f1abd4c39"]}

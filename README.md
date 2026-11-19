@@ -69,11 +69,71 @@ What it shows:
 
 Raw per-request data is in [`results/speed-ab.jsonl`](results/speed-ab.jsonl) and the driver output in [`results/speed-ab.out`](results/speed-ab.out). The scripts are [`scripts/ab.sh`](scripts/ab.sh) and [`scripts/bench.py`](scripts/bench.py).
 
+## Qwen3.6-35B-A3B on the same box
+
+Ornith-1.5 is a fine-tune of Qwen3.6-35B-A3B. We measured the base model with the same method.
+
+### Quant quality (each against bartowski's Qwen3.6 Q8_0)
+
+| Quant | Code: mean KLD | Code: same top | Prose: mean KLD | Prose: same top |
+|---|---:|---:|---:|---:|
+| **Unsloth UD-Q4_K_M** (MTP build) | **0.0504** | 95.42% | **0.0116** | 95.68% |
+| Unsloth UD-Q4_K_XL (MTP build) | 0.0501 | 95.41% | 0.0110 | 96.00% |
+| bartowski Q4_K_L | 0.0720 (+43%) | 94.60% | 0.0176 (+52%) | 94.99% |
+
+Full table: [`results/kld-qwen36/TABLE.md`](results/kld-qwen36/TABLE.md).
+
+- **Unsloth's dynamic quants win for Qwen3.6**, and UD-Q4_K_XL buys nothing over UD-Q4_K_M. The recipe that helped Ornith (bartowski Q4_K_L) is the worst of the three here.
+- These numbers measure how faithful each quant is to its own model's Q8_0. They don't say which model is better, and KLD values don't compare across the two models.
+
+### Speed (interleaved with Ornith Q4_K_L as the control)
+
+| Config | Code tok/s | Prose tok/s | Prefill tok/s | VRAM used | MTP acceptance (code) |
+|---|---:|---:|---:|---:|---:|
+| **Ornith Q4_K_L** (`--n-cpu-moe 31`, median of 4) | 67.7 | 58.9 | 1724 | 11.1 GB | 79% |
+| Qwen3.6 UD-Q4_K_M, `--n-cpu-moe 30` | 72.7 | 67.4 | **1033** | 11.7 GB | 92% |
+| Qwen3.6 UD-Q4_K_M, `--n-cpu-moe 31` | 71.5 (+6%) | 65.7 (+11%) | 1740 (+1%) | 11.3 GB | 92% |
+| Qwen3.6 UD-Q4_K_XL, `--n-cpu-moe 31` | 71.2 (+5%) | 64.5 (+10%) | 1758 (+2%) | 11.5 GB | 92% |
+| Qwen3.6 bartowski Q4_K_L, `--n-cpu-moe 31` | 73.2 (+8%) | 68.3 (+16%) | 1730 (0%) | 11.5 GB | 92% |
+
+- **Qwen3.6 decodes 5–16% faster** on the same hardware, mostly because its MTP head's drafts are accepted more often (92% against 79%). Ornith's MTP head works, but it was evidently not retrained as well as the rest of the fine-tune.
+- **Watch VRAM headroom on Windows.** At `--n-cpu-moe 30` the UD-Q4_K_M sat at 11.7 of 12.2 GB, and prefill dropped 40%. Moving one more expert layer to RAM restored it at almost no cost to decode. Under WDDM, a nearly full card loses prefill speed without any error.
+
+Raw data: [`results/speed-qwen36.jsonl`](results/speed-qwen36.jsonl) and [`results/speed-qwen36.out`](results/speed-qwen36.out).
+
+## Agent tasks: harness and model
+
+These runs used six multi-file Go feature tasks (a small private benchmark, not published here), each graded by its test suite. Each agent ran against llama-server through a logging proxy, with the server's default sampling of temperature 0.6, top-p 0.95, top-k 20.
+
+### Which harness (Ornith official Q4_K_M, 2 reps per task)
+
+| Harness | Pass | Median time per task | Median generated tokens | Runs that edited the tests |
+|---|---:|---:|---:|---:|
+| **Claude Code `--bare`** | **11/12** | **211 s** | 13.5K | 0 |
+| Claude Code (full prompt) | 10/12 | 285 s | 17.1K | 1 |
+| little-coder | 11/12 | 529 s | 32.4K | 4 |
+| [pi](https://github.com/badlogic/pi-mono) | 6/12 | 78 s | 4.6K | 0 |
+
+Claude Code reaches llama-server's Anthropic-compatible `/v1/messages` with `ANTHROPIC_BASE_URL` and `CLAUDE_CODE_MAX_CONTEXT_TOKENS=131072`. `--bare` cuts the system prompt to about 1K tokens and the tool set to Bash, Read and Edit, which suits a 35B model at this speed. Full table: [`results/harness/harness4-hard.md`](results/harness/harness4-hard.md).
+
+### Ornith-1.5 against Qwen3.6 (Claude Code `--bare`, 3 reps per task)
+
+| Model | Pass | Median time per task | Median generated tokens | Total time (18 runs) |
+|---|---:|---:|---:|---:|
+| Ornith-1.5 bartowski Q4_K_L | 16/18 | 218 s | 12.5K | 73 min |
+| Qwen3.6 Unsloth UD-Q4_K_M, `preserve_thinking` on | 15/18 | **73 s** | **4.0K** | **30 min** |
+
+- **The pass rates are a statistical tie.** One run in 18 is noise at this sample size.
+- **Qwen3.6 finishes in about a third of the time**, mostly because it writes about a third as many tokens; its faster decode adds a little.
+- **They fail differently.** Ornith failed one task (split) twice after long attempts of 256–343 s. Qwen3.6 failed two other tasks in short runs of 70–110 s: it stopped and reported done with the work incomplete.
+- Per-task table: [`results/harness/h2h.md`](results/harness/h2h.md).
+
 ## Recommendations for a 12 GB card + 32 GB RAM
 
-1. Use **Q4_K_L** (or any quant with Q8_0 attention/SSM/shared-expert tensors) rather than a stock Q4_K_M. Use Q5_K_M only if you can give up decode and prefill speed. An earlier, less controlled measurement on this box gave 64 against 78 tok/s decode and 634 against 1,123 tok/s prefill, at `--n-cpu-moe 32`.
-2. Keep **`--n-cpu-moe`** hand-tuned to just fill VRAM, and **MTP with 1 draft**. Skip `--moe-cache-mib` for coding.
+1. For Ornith, use **Q4_K_L** (or any quant with Q8_0 attention/SSM/shared-expert tensors) rather than a stock Q4_K_M. For Qwen3.6, use **Unsloth UD-Q4_K_M**. Use Q5_K_M only if you can give up decode and prefill speed. An earlier, less controlled measurement on this box gave 64 against 78 tok/s decode and 634 against 1,123 tok/s prefill, at `--n-cpu-moe 32`.
+2. Keep **`--n-cpu-moe`** hand-tuned to just under full VRAM: on Windows, leave about 0.8 GB free or prefill drops sharply. Use **MTP with 1 draft**. Skip `--moe-cache-mib` for coding.
 3. **q8_0 KV** is fine.
+4. For agent work, **Claude Code `--bare`** was the best harness tested. Between the two models, Qwen3.6 matched Ornith's pass rate in about a third of the time. Set `preserve_thinking` for Qwen3.6 (`--chat-template-kwargs '{"preserve_thinking":true}'`), since its template otherwise drops earlier reasoning.
 
 ## Reproducing
 
